@@ -1,0 +1,16 @@
+import requests
+import json
+
+from requests import session
+
+
+class getsession():
+    def get_session(self):
+        session = requests.Session()
+        return session
+
+class analyzesession():
+    def analyze_session(self):
+        r = requests.get('https://clarity.dexcom.com/api/subject/1594950620847472640/analysis_session')
+        data = r.json()
+        return data
