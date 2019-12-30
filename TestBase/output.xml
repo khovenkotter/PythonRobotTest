@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.8.1 on win32)" generated="20191230 13:32:41.444" rpa="false">
+<suite id="s1" name="Test1" source="E:\VS_Projects\Python\DexcomPythonChallenge\PythonRobotTest\TestBase\test1.robot">
+<kw name="Open" type="setup">
+<msg timestamp="20191230 13:32:41.955" level="FAIL">No keyword with name 'Open' found.</msg>
+<status status="FAIL" starttime="20191230 13:32:41.955" endtime="20191230 13:32:41.956"></status>
+</kw>
+<test id="s1-t1" name="Test_Login">
+<status status="FAIL" starttime="20191230 13:32:41.956" endtime="20191230 13:32:41.958" critical="yes">Parent suite setup failed:
+No keyword with name 'Open' found.</status>
+</test>
+<kw name="Close" type="teardown">
+<msg timestamp="20191230 13:32:41.964" level="FAIL">No keyword with name 'Close' found.</msg>
+<status status="FAIL" starttime="20191230 13:32:41.964" endtime="20191230 13:32:41.964">No keyword with name 'Close' found.</status>
+</kw>
+<status status="FAIL" starttime="20191230 13:32:41.447" endtime="20191230 13:32:41.964">Suite setup failed:
+No keyword with name 'Open' found.
+
+Also suite teardown failed:
+No keyword with name 'Close' found.</status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" id="s1" name="Test1">Test1</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20191230 13:32:41.937" level="ERROR">Error in file 'E:\VS_Projects\Python\DexcomPythonChallenge\PythonRobotTest\TestBase\test1.robot': Test library 'ServiceRequest.py' does not exist.</msg>
+<msg timestamp="20191230 13:32:41.948" level="ERROR">Error in file 'E:\VS_Projects\Python\DexcomPythonChallenge\PythonRobotTest\TestBase\test1.robot': Importing test library 'E:\VS_Projects\Python\DexcomPythonChallenge\PythonRobotTest\TestBase\ClarityHomePage.py' failed: ModuleNotFoundError: No module named 'PythonRobotTest'
+Traceback (most recent call last):
+  File "E:\VS_Projects\Python\DexcomPythonChallenge\PythonRobotTest\TestBase\ClarityHomePage.py", line 1, in &lt;module&gt;
+    from PythonRobotTest.TestBase.Web import Web
+PYTHONPATH:
+  E:\Python\Scripts\robot.exe
+  e:\python\python38.zip
+  e:\python\DLLs
+  e:\python\lib
+  e:\python
+  e:\python\lib\site-packages
+  e:\python\lib\site-packages\win32
+  e:\python\lib\site-packages\win32\lib
+  e:\python\lib\site-packages\Pythonwin</msg>
+</errors>
+</robot>

@@ -2,46 +2,36 @@
 Library  SeleniumLibrary
 Library     requests
 Library     ServiceRequest.py
+Library     ClarityHomePage.py  Chrome
+Suite Setup  Open
+Suite Teardown  Close
 
 *** Variables ***
 ${LOGIN URL}    https://clarity.dexcom.com/
 ${BROWSER}      Chrome
 ${SUBJECTID}    1594950620847472640
-${password}
-${username}
+${password}     Password@1
+${username}     nilepatest001
 
 *** Test Cases ***
 Test_Login
-    Open Browser to Clarity Page
-    Go To HomeUser
-    Input Username
-    Input Password
-    Submit Credentials
+    Open Browser To Clarity Login Page
+    Login As Home User
     Get Session
     Authorize Session
+    Close Browser
+
 
 *** Keywords ***
-Open Browser to Clarity Page
-    Open Browser    ${LOGIN URL}    ${BROWSER}
-    Title Should Be     Dexcom CLARITY
+Open Browser To Clarity Login Page
+    Open
+    select home user
 
-Go To HomeUser
-    Click Button    xpath:/html/body/div[1]/div[1]/div/div[2]/div/nav/ul/li[1]/div/a
-    Title Should Be     Dexcom - Account Management
+Login As Home User
+    input username  ${username}
+    input password  ${password}
+    select login
 
-Input Username
-    [Arguments] ${username}
-    Input Text  id:usename ${username}
-
-Input Password
-    [Arguments] ${password}
-    Input Text  id:password   ${password}
-
-Submit Credentials
-    Click Button    login_button
-
-Welcome Page Should Be Open
-    Title Should Be     Dexcom CLARITY
 
 Get Session
     ${sessioninfo} =    call method  getsession()
@@ -49,4 +39,7 @@ Get Session
 Authorize Session
     ${sessiondata} =    call method  authorizesession()
     should be equal as numbers      ${sessiondata.data.subjectID()} 1594950620847472640
+
+Close Browser
+    Close
 
