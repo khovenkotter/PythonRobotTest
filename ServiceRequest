@@ -1,16 +1,27 @@
 import requests
 import json
+import html
+import bs4
+from robot.api.deco import keyword
 
 from requests import session
+from bs4 import BeautifulSoup
 
 
-class getsession():
-    def get_session(self):
-        session = requests.Session()
-        return session
 
-class analyzesession():
-    def analyze_session(self):
-        r = requests.get('https://clarity.dexcom.com/api/subject/1594950620847472640/analysis_session')
-        data = r.json()
-        return data
+class createssession():
+    __username = None
+    __password = None
+
+    @keyword
+    def creates_session(self, username, password):
+        s = requests.Session()
+        s.get('https://clarity.dexcom.com/users/auth/dexcom_sts')
+        soup = BeautifulSoup(s.response.content, 'html5lib')
+        returnurl = soup.find(text="login?signin=")
+
+        params = {"returnurl"}
+        data = {'username': username, 'password': password}
+        r = s.post('https://uam1.dexcom.com/identity/login?signin='+returnurl, json=data)
+        return r
+
